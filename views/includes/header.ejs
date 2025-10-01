@@ -1,0 +1,12 @@
+ <header>
+        <h2><a href="/">our wonderful app</a></h2>
+        <nav> 
+            <% if (user) { %>
+                <a href="/create-post">create post</a>
+                <a href="/logout">log out</a>
+            <% } else{ %>
+                <a href="/login">log in</a>
+           <% }  %>
+          
+        </nav>
+    </header>

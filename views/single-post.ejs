@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang ="en">
+   <%-include('includes/head') %>
+
+<body>
+     <%-include('includes/header') %>
+
+    
+ <main>
+      <h1><%= post.title %></h1>
+
+      <article>
+        <small>
+            posted by <%= post.username %> on <%= new Date(post.createdDate).getMonth() + 1 %>/<%= new Date(post.createdDate).getDate() %>/<%= new Date(post.createdDate).getFullYear() %>
+        </small>
+        <div>
+            <%- filterUserMessages(post.body)%>
+        </div>
+      </article>
+
+      <% if (isAuthor) { %>
+        <a href="/edit-post/<%=post.id%>" class="button">edit post</a>
+
+      <form style ="display: inline;" action ="/delete-post/ <%=post.id%>" method="POST">
+
+      <button>delete post</button>
+      </form>
+        
+        
+      <%} %>
+
+      
+      </main>
+    </main>
+
+   <%-include('includes/footer') %>
+
+</body>
+</html>
